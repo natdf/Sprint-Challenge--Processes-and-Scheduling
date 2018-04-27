@@ -101,8 +101,35 @@ int main(void)
         #endif
         
         /* Add your code for implementing the shell's logic here */
-        
+
+// WIP ////////////////////////////////////////////////////
+
+    int rc = fork();
+
+    if (rc < 0) {
+        printf("Fork failed\n");
+        exit(1);
+    } else if (rc == 0) {
+        execvp(args[0], args);
+    } else {
+        waitpid(rc, NULL, 0);
     }
 
+    // Change directory INCOMPLETE
+       
+    // int cd (char *path) {
+    //     return chdir(path);
+    // }
+    //     args[0] = get_input(commandline);
+
+    //     if (strcmp(args[0], "cd") == 0) {
+    //         if cd(args[1]) < 0 {
+    //             perror(args[1]);
+    //         }
+    //         continue;
+    //     }
+    }
     return 0;
 }
+
+// WIP ////////////////////////////////////////////////////
